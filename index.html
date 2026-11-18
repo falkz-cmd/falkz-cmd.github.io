@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Davi Gomes Rocha · Portfólio</title>
+<meta name="description" content="Davi Gomes Rocha, desenvolvedor de software, fundador e tech lead do Agesto: ERP com app offline-first e agente de IA para prestadores de serviço.">
+<meta property="og:title" content="Davi Gomes Rocha · Portfólio">
+<meta property="og:description" content="Fundador e tech lead do Agesto. Produtos de ponta a ponta com IA no fluxo de trabalho.">
+<meta property="og:image" content="img/agesto-dashboard.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f4fa8'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' fill='white' text-anchor='middle'%3EDG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --bg: #f7f8fb; --surface: #ffffff; --ink: #141a24; --muted: #5a6575; --line: #e1e5ec;
+    --accent: #1f4fa8; --accent-ink: #ffffff; --accent-soft: #e8eefa;
+    --font: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+    --wrap: 1080px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; gap: 16px; }
+  nav .brand { font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+  nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; font-size: 15px; }
+  nav ul a { color: var(--muted); text-decoration: none; }
+  nav ul a:hover { color: var(--ink); }
+  @media (max-width: 640px) { nav ul { display: none; } }
+
+  /* hero */
+  .hero { padding: 72px 0 56px; }
+  .eyebrow { font-family: var(--mono); font-size: 13px; color: var(--accent); letter-spacing: 0.04em; text-transform: uppercase; }
+  h1 { font-size: clamp(38px, 6vw, 60px); line-height: 1.05; letter-spacing: -0.025em; margin: 12px 0 14px; text-wrap: balance; }
+  .role { font-size: clamp(18px, 2.4vw, 22px); color: var(--ink); font-weight: 500; margin: 0; }
+  .lead { max-width: 640px; color: var(--muted); margin: 14px 0 0; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 22px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 15px; }
+  .facts li::before { content: "·"; margin-right: 8px; color: var(--accent); font-weight: 700; }
+  .facts li:first-child::before { content: none; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink); transition: border-color .15s, transform .15s; }
+  .btn:hover { border-color: var(--accent); }
+  .btn:active { transform: translateY(1px); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .btn svg { width: 17px; height: 17px; }
+
+  /* sections */
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: clamp(28px, 4vw, 38px); letter-spacing: -0.02em; line-height: 1.15; margin: 8px 0 12px; }
+  h3 { font-size: 20px; letter-spacing: -0.01em; margin: 0 0 6px; line-height: 1.3; }
+  .section-lead { max-width: 700px; color: var(--muted); margin: 0 0 32px; }
+
+  .shot { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 1px 2px rgba(20,26,36,.04), 0 12px 40px -16px rgba(20,26,36,.18); }
+  figure { margin: 0; }
+  figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; }
+
+  .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 860px) { .grid2, .grid3 { grid-template-columns: minmax(0, 1fr); } }
+
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+  .card p { margin: 0; color: var(--muted); font-size: 16px; }
+  .num { font-family: var(--mono); font-size: 13px; color: var(--accent); display: block; margin-bottom: 8px; }
+
+  .problem { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; margin-bottom: 36px; }
+  @media (max-width: 860px) { .problem { grid-template-columns: minmax(0, 1fr); } }
+  .problem .card h3 { font-size: 17px; }
+
+  .arch { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin: 36px 0; }
+  .arch svg { width: 100%; height: auto; }
+  .arch .narrow { display: none; max-width: 420px; margin: 0 auto; }
+  @media (max-width: 700px) { .arch .wide { display: none; } .arch .narrow { display: block; } }
+  .arch text { font-family: var(--font); }
+  .arch-caption { color: var(--muted); font-size: 15px; margin: 14px 0 0; }
+
+  .sub-h { font-size: 22px; margin: 44px 0 16px; letter-spacing: -0.01em; }
+  .flow { list-style: none; padding: 0; margin: 0; counter-reset: s; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+  .flow li { counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; font-size: 15px; }
+  .flow li::before { content: counter(s, decimal-leading-zero); display: block; font-family: var(--mono); font-size: 12px; color: var(--accent); margin-bottom: 4px; }
+  .flow b { display: block; }
+  .flow span { color: var(--muted); font-size: 14px; }
+  @media (max-width: 860px) { .flow { grid-template-columns: minmax(0, 1fr); } }
+
+  .status { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; }
+  .status li { background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 600; }
+
+  /* timeline */
+  .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+  .timeline li { position: relative; padding: 0 0 26px 24px; }
+  .timeline li::before { content: ""; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent); }
+  .when { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+  .timeline p { margin: 2px 0 0; color: var(--muted); font-size: 16px; max-width: 720px; }
+
+  .skills { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 10px 20px; margin: 0; }
+  .skills dt { font-weight: 600; }
+  .skills dd { margin: 0; color: var(--muted); }
+  @media (max-width: 640px) { .skills { grid-template-columns: minmax(0, 1fr); gap: 2px; } .skills dd { margin-bottom: 12px; } }
+
+  footer { border-top: 1px solid var(--line); padding: 48px 0 64px; }
+  footer .actions { margin-top: 18px; }
+  .note { font-size: 13px; color: var(--muted); margin-top: 36px; }
+</style>
+</head>
+<body>
+
+<nav aria-label="Seções">
+  <div class="wrap">
+    <a class="brand" href="#topo">Davi Gomes Rocha</a>
+    <ul>
+      <li><a href="#agesto">Agesto</a></li>
+      <li><a href="#projetos">Outros projetos</a></li>
+      <li><a href="#trajetoria">Trajetória</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="topo">
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Portfólio</span>
+      <h1>Davi Gomes Rocha</h1>
+      <p class="role">Desenvolvedor de Software · Fundador e Tech Lead do Agesto</p>
+      <p class="lead">Produtos construídos de ponta a ponta com IA no centro do fluxo de trabalho: do problema de quem usa até o sistema em produção.</p>
+      <ul class="facts">
+        <li>Uberlândia-MG</li>
+        <li>Sistemas de Informação · Uniube</li>
+        <li>Analista de Suporte · Landix Sistemas</li>
+      </ul>
+      <div class="actions">
+        <a class="btn primary" href="#agesto">Ver o case Agesto</a>
+        <a class="btn" href="https://github.com/falkz-cmd" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/davi731" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .52.53 0 1.18 0h13.64C15.47 0 16 .52 16 1.15v13.7c0 .63-.53 1.15-1.18 1.15H1.18C.53 16 0 15.48 0 14.85V1.15zM4.94 13.4V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.56 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .69.52 1.25 1.33 1.25h.01zM8.66 13.4V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.63v3.88h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.27 0-1.84.7-2.16 1.19v.03h-.02l.02-.03V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg>
+          LinkedIn</a>
+        <a class="btn" href="Curriculo_Davi_Gomes_Rocha.pdf" download>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 13h10"/></svg>
+          Currículo (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="agesto">
+    <div class="wrap">
+      <span class="eyebrow">Case principal · 2026</span>
+      <h2>Agesto: ERP para quem trabalha em campo</h2>
+      <p class="section-lead">Sistema de gestão para prestadores de serviço autônomos (técnico de ar-condicionado, instalador, eletricista) que cobre orçamento, agenda, atendimento e cobrança. Função: fundador e tech lead de um time de 3 pessoas.</p>
+      <ul class="status" aria-label="Situação do projeto">
+        <li>MVP em produção</li>
+        <li>Piloto com cliente real</li>
+        <li>Fase final do MVP</li>
+      </ul>
+
+      <div class="problem">
+        <div class="card">
+          <span class="num">O problema</span>
+          <h3>A gestão do pequeno prestador vive no papel e no WhatsApp</h3>
+          <p>ERPs do mercado são feitos para empresas médias: caros e complexos. Quem trabalha na rua controla orçamento em caderno, agenda em conversa e não sabe quanto sobrou no fim do mês.</p>
+        </div>
+        <div class="card">
+          <span class="num">A solução</span>
+          <h3>Duas pontas para dois papéis</h3>
+          <p>O dono usa o painel web, com margem, faturamento e agenda da equipe. O agente de campo usa o app Android, que funciona sem internet: registra o atendimento na hora e sincroniza quando a rede volta.</p>
+        </div>
+      </div>
+
+      <figure>
+        <div class="shot"><img src="img/agesto-dashboard.jpg" width="1600" height="1000" alt="Painel web do Agesto: margem de R$ 11.360, faturamento de R$ 18.420, gráfico de receita por dia e, à direita, o painel do Agente de IA com perguntas sugeridas como 'Quanto sobrou este mês?'"></div>
+        <figcaption>Visão geral do dono, com o Agente de IA à direita respondendo perguntas sobre os números do negócio. Dados fictícios do modo de demonstração.</figcaption>
+      </figure>
+
+      <div class="arch" aria-labelledby="arch-title">
+        <h3 id="arch-title">Como as partes se conectam</h3>
+        <svg class="wide" viewBox="0 0 960 330" role="img" aria-label="Arquitetura: o app de campo e o painel web conversam com a API .NET; a API grava no PostgreSQL e manda as métricas prontas para o Claude, que só as interpreta.">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1f4fa8"/></marker>
+          </defs>
+          <g fill="none" stroke="#1f4fa8" stroke-width="2">
+            <path d="M242 75 C320 75 300 140 366 140" marker-start="url(#ar)" marker-end="url(#ar)"/>
+            <path d="M242 255 C320 255 300 190 366 190" marker-end="url(#ar)"/>
+            <path d="M602 140 C668 140 650 75 726 75" marker-start="url(#ar)" marker-end="url(#ar)"/>
+            <path d="M602 190 C668 190 650 255 726 255" marker-end="url(#ar)"/>
+          </g>
+          <g font-size="15" fill="#141a24">
+            <rect x="10" y="30" width="230" height="90" rx="12" fill="#ffffff" stroke="#c9d3e6"/>
+            <text x="28" y="66" font-weight="700">App do agente de campo</text>
+            <text x="28" y="92" font-size="13" fill="#5a6575">Android · banco local · offline</text>
+
+            <rect x="10" y="210" width="230" height="90" rx="12" fill="#ffffff" stroke="#c9d3e6"/>
+            <text x="28" y="246" font-weight="700">Painel web do dono</text>
+            <text x="28" y="272" font-size="13" fill="#5a6575">métricas, agenda e cadastros</text>
+
+            <rect x="368" y="105" width="232" height="120" rx="12" fill="#1f4fa8"/>
+            <text x="388" y="148" font-weight="700" fill="#ffffff" font-size="17">API · C# .NET 10</text>
+            <text x="388" y="174" font-size="13" fill="#dbe5f8">multi-tenant · JWT</text>
+            <text x="388" y="194" font-size="13" fill="#dbe5f8">regras de negócio e sync</text>
+
+            <rect x="728" y="30" width="222" height="90" rx="12" fill="#ffffff" stroke="#c9d3e6"/>
+            <text x="746" y="66" font-weight="700">PostgreSQL</text>
+            <text x="746" y="92" font-size="13" fill="#5a6575">métricas calculadas no banco</text>
+
+            <rect x="728" y="210" width="222" height="90" rx="12" fill="#ffffff" stroke="#c9d3e6"/>
+            <text x="746" y="246" font-weight="700">Claude (Anthropic)</text>
+            <text x="746" y="272" font-size="13" fill="#5a6575">interpreta os números</text>
+          </g>
+          <g font-size="12" fill="#1f4fa8" font-weight="600">
+            <text x="250" y="60">Carga / Descarga</text>
+            <text x="250" y="292">REST</text>
+            <text x="610" y="60">EF Core</text>
+            <text x="608" y="292">números → resposta</text>
+          </g>
+        </svg>
+        <svg class="narrow" viewBox="0 0 360 440" role="img" aria-label="Arquitetura: o app de campo e o painel web conversam com a API .NET; a API grava no PostgreSQL e manda as métricas prontas para o Claude, que só as interpreta.">
+          <defs>
+            <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1f4fa8"/></marker>
+          </defs>
+          <g fill="none" stroke="#1f4fa8" stroke-width="2">
+            <path d="M90 92 L140 168" marker-start="url(#ar2)" marker-end="url(#ar2)"/>
+            <path d="M270 92 L220 168" marker-end="url(#ar2)"/>
+            <path d="M140 262 L90 338" marker-start="url(#ar2)" marker-end="url(#ar2)"/>
+            <path d="M220 262 L270 338" marker-end="url(#ar2)"/>
+          </g>
+          <g font-size="13" fill="#141a24">
+            <rect x="8" y="10" width="164" height="80" rx="10" fill="#ffffff" stroke="#c9d3e6"/>
+            <text x="20" y="42" font-weight="700">App de campo</text>
+            <text x="20" y="64" font-size="11.5" fill="#5a6575">offline · banco local</text>
+            <rect x="188" y="10" width="164" height="80" rx="10" fill="#ffffff" stroke="#c9d3e6"/>
+            <text x="200" y="42" font-weight="700">Painel web do dono</text>
+            <text x="200" y="64" font-size="11.5" fill="#5a6575">métricas e gestão</text>
+            <rect x="50" y="170" width="260" height="90" rx="10" fill="#1f4fa8"/>
+            <text x="66" y="206" font-weight="700" fill="#ffffff" font-size="15">API · C# .NET 10</text>
+            <text x="66" y="230" font-size="11.5" fill="#dbe5f8">multi-tenant · JWT · sincronização</text>
+            <rect x="8" y="340" width="164" height="80" rx="10" fill="#ffffff" stroke="#c9d3e6"/>
+            <text x="20" y="372" font-weight="700">PostgreSQL</text>
+            <text x="20" y="394" font-size="11.5" fill="#5a6575">métricas no banco</text>
+            <rect x="188" y="340" width="164" height="80" rx="10" fill="#ffffff" stroke="#c9d3e6"/>
+            <text x="200" y="372" font-weight="700">Claude</text>
+            <text x="200" y="394" font-size="11.5" fill="#5a6575">interpreta os números</text>
+          </g>
+          <g font-size="11" fill="#1f4fa8" font-weight="600">
+            <text x="4" y="140">Carga/Descarga</text>
+            <text x="262" y="140">REST</text>
+          </g>
+        </svg>
+        <p class="arch-caption">O app guarda tudo localmente e sincroniza por Carga (dados do servidor para o celular) e Descarga (atendimentos feitos offline para o servidor). A IA nunca calcula: recebe os números prontos do banco e explica o que eles significam.</p>
+      </div>
+
+      <h3 class="sub-h">Decisões técnicas que definem o produto</h3>
+      <div class="grid2">
+        <div class="card">
+          <span class="num">01 · Offline-first</span>
+          <h3>O agente trabalha sem internet</h3>
+          <p>Atendimentos ficam pendentes no celular e sobem um a um na Descarga, com sync incremental e conflitos resolvidos pela última alteração. Se algo falha, a pendência é preservada, nunca perdida.</p>
+        </div>
+        <div class="card">
+          <span class="num">02 · IA que interpreta, não calcula</span>
+          <h3>Números confiáveis, explicação em linguagem simples</h3>
+          <p>Receita, margem e estoque são agregados no banco. O Claude recebe esses valores e responde perguntas como “quanto sobrou este mês?”. Custo controlado com modelo econômico e limite de 20 perguntas por dia por empresa.</p>
+        </div>
+        <div class="card">
+          <span class="num">03 · Multi-tenant seguro</span>
+          <h3>Cada empresa só vê os próprios dados</h3>
+          <p>A empresa vem do token JWT, nunca do corpo da requisição, e é revalidada no banco a cada chamada. Rate limit, bloqueio após senhas erradas, revogação de sessão e exclusão de conta com anonimização (LGPD).</p>
+        </div>
+        <div class="card">
+          <span class="num">04 · Decisões registradas</span>
+          <h3>Mais de 50 decisões técnicas documentadas</h3>
+          <p>Cada escolha relevante tem contexto, alternativas descartadas e impacto registrados. O time trabalha no fluxo feature → develop → main, com pull requests e a main sempre estável.</p>
+        </div>
+      </div>
+
+      <h3 class="sub-h">Como o Agesto é construído com IA</h3>
+      <p class="section-lead">O desenvolvimento usa agentes de código (Claude Code e Codex) com subagentes especializados e skills próprias. Cada tarefa passa pelo mesmo ciclo:</p>
+      <ol class="flow">
+        <li><b>Tarefa</b><span>Requisito e critério de pronto no backlog</span></li>
+        <li><b>Plano</b><span>Subagente tech lead propõe a abordagem</span></li>
+        <li><b>Implementação</b><span>Agente de código em branch de feature</span></li>
+        <li><b>Revisão</b><span>Subagente revisor + skill de segurança</span></li>
+        <li><b>Integração</b><span>Pull request para develop, depois main</span></li>
+      </ol>
+
+      <h3 class="sub-h">Outras telas</h3>
+      <div class="grid2">
+        <figure>
+          <div class="shot"><img src="img/agesto-agenda.jpg" width="1600" height="1000" loading="lazy" alt="Agenda do Agesto em formato de calendário mensal, com atendimentos por dia e o detalhe do atendimento de hoje ao lado"></div>
+          <figcaption>Agenda da equipe, com visão de calendário e de mapa.</figcaption>
+        </figure>
+        <figure>
+          <div class="shot"><img src="img/agesto-atendimentos.jpg" width="1600" height="1000" loading="lazy" alt="Lista de atendimentos do Agesto com status pendente, concluído, a receber e pago, total e margem por atendimento"></div>
+          <figcaption>Atendimentos com status de pagamento e margem de cada serviço.</figcaption>
+        </figure>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/Agesto-Platform/Agesto" target="_blank" rel="noopener">Ver o repositório do Agesto</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <span class="eyebrow">Outros projetos</span>
+      <h2>Mais trabalhos</h2>
+      <div class="grid2">
+        <div class="card">
+          <span class="num">NASA Space Apps Challenge · out/2025</span>
+          <h3>Stellar Stories</h3>
+          <p>Site educativo que explica clima espacial para crianças por meio de histórias e imagens. Desenvolvido em equipe na hackathon da NASA, com HTML, CSS e JavaScript.</p>
+          <p style="margin-top:12px"><a href="https://github.com/falkz-cmd/nasa-space-apps-challenge" target="_blank" rel="noopener">Ver repositório</a></p>
+        </div>
+        <div class="card">
+          <span class="num">Propello · 2026</span>
+          <h3>Sites para clientes da agência</h3>
+          <p>Portfólios e landing pages construídos com apoio de IA, do protótipo à publicação. Os projetos de clientes entram aqui assim que forem aprovados para divulgação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trajetoria">
+    <div class="wrap">
+      <span class="eyebrow">Trajetória</span>
+      <h2>Experiência e formação</h2>
+      <ol class="timeline">
+        <li>
+          <span class="when">2026 – atual</span>
+          <h3>Agesto · Fundador e Tech Lead</h3>
+          <p>Liderança do produto e do time, do desenho da solução até o MVP em produção com piloto pago.</p>
+        </li>
+        <li>
+          <span class="when">2026 – atual</span>
+          <h3>Propello · Sócio, Engenharia de IA e Web</h3>
+          <p>Agência digital de sites e tráfego pago, com 3 sócios. Construção de sites com IA, atendimento a clientes e levantamento de requisitos.</p>
+        </li>
+        <li>
+          <span class="when">ago/2025 – atual</span>
+          <h3>Landix Sistemas · Analista de Suporte</h3>
+          <p>Estagiário de ago/2025 a jul/2026, efetivado em ago/2026. Suporte ao produto de força de vendas, com reprodução de erros, consultas SQL e testes de API para diagnóstico.</p>
+        </li>
+        <li>
+          <span class="when">conclusão prevista em dez/2027</span>
+          <h3>Uniube · Bacharelado em Sistemas de Informação</h3>
+          <p>Cursando o 6º período.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="competencias">
+    <div class="wrap">
+      <span class="eyebrow">Competências</span>
+      <h2>Com o que trabalha</h2>
+      <dl class="skills">
+        <dt>IA e automação</dt><dd>Prompt engineering, orquestração de agentes de código (Claude Code, Codex), subagentes e skills, MCP, vibe coding, integração de LLM em produto</dd>
+        <dt>Backend</dt><dd>C#, ASP.NET Core, Entity Framework Core, APIs REST, autenticação JWT</dd>
+        <dt>Dados</dt><dd>SQL, PostgreSQL, consultas para diagnóstico</dd>
+        <dt>Suporte</dt><dd>Reprodução de erros, diagnóstico com SQL e APIs, atendimento técnico</dd>
+        <dt>Produto</dt><dd>Levantamento de requisitos, decisões técnicas documentadas, gestão de backlog</dd>
+        <dt>Idiomas</dt><dd>Português nativo · inglês básico, com leitura de documentação técnica</dd>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <span class="eyebrow">Contato</span>
+    <h2>Vamos conversar</h2>
+    <p class="section-lead" style="margin-bottom:0">E-mail: <a href="mailto:rochadavi216731@gmail.com">rochadavi216731@gmail.com</a></p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:rochadavi216731@gmail.com">Enviar e-mail</a>
+      <a class="btn" href="https://www.linkedin.com/in/davi731" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/falkz-cmd" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="Curriculo_Davi_Gomes_Rocha.pdf" download>Currículo (PDF)</a>
+    </div>
+    <p class="note">As telas do Agesto foram capturadas no modo de demonstração, com dados fictícios.</p>
+  </div>
+</footer>
+
+</body>
+</html>
